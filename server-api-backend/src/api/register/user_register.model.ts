@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { db } from '../../db';
-
+import { WithId } from 'mongodb';
 export const userRegister = z.object({
   email: z.string().email({ message: 'Invalid email address' }).trim().min(5),
   password: z.string().min(5),
@@ -11,5 +11,6 @@ export const userRegister = z.object({
   activated: z.boolean().default(false),
 });
 export type userRegister = z.infer<typeof userRegister>;
+export type userRegisterWithId = WithId<userRegister>;
 export const userRegisterDb = db.collection<userRegister>('ACusers');
 
