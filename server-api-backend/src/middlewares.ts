@@ -26,6 +26,7 @@ export function validateRequest(validator: requestValidator) {
         res.status(422);
       }
       //Call and pass error message to MiddleWare fun.
+      console.log(error)
       next(error);
     }
   };
