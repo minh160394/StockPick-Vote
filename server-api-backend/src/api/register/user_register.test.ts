@@ -1,17 +1,18 @@
 import request from "supertest";
 import app from "../../app";
-import { userRegisterDb } from "./user_register.model";
-beforeAll(async () => {
-   userRegisterDb.drop();
-}); 
+import { userRegisterDb } from "../../db";
 
+beforeAll(async () => {
+  
+}); 
+/*
 describe("api/v1/register", () =>{
     it("Create new account", async ()=>{
         const res = await request(app)
             .post("/api/v1/register")
             .send({
-                email: "minh1603942@gmail.com",
-                password: "minh123456",
+                email: "minh16039422@gmail.com",
+                password: "minh1234567",
                 firstname: "Minh",
                 lastname: "Huynh",
                 phone: 6476249349
@@ -44,4 +45,4 @@ describe("api/v1/register", () =>{
             .expect("Content-Type", /json/)
             expect(res.statusCode).toEqual(404)
     });
-})
+})*/

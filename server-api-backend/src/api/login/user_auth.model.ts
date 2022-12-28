@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { W, WithId } from 'mongodb';
 
-export const UserLogin = z.object({
-    username: z.string().min(5,{message: "Please Enter Your Username"}),
-    password: z.string().min(5,{message: "Please Enter Your Password"}),
-});
-export type UserLogin = z.infer<typeof UserLogin>;
-export type UserLoginWithId = WithId<UserLogin>;
+
+export const user_login = z.object({
+    email: z.string().email({ message: 'Invalid email address' }).trim().min(5),
+    password: z.string().min(5,{ message: 'Please enter your password'}),
+})
+export type userlogin = z.infer<typeof user_login>;
+

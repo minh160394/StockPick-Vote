@@ -1,7 +1,8 @@
 import express from 'express';
 
 import MessageResponse from '../interfaces/MessageResponse';
-import route from './register/user_register.router';
+import route_login from './login/user_auth.router';
+import route_register from './register/user_register.router';
 
 const router = express.Router();
 
@@ -11,6 +12,6 @@ router.get<{}, MessageResponse>('/', (req, res) => {
   });
 });
 
-router.use('/register',route);
-
+router.use('/register',route_register);
+router.use('/login',route_login);
 export default router;

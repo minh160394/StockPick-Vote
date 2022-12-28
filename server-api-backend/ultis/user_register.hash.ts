@@ -1,6 +1,6 @@
-import { config } from "../../../config/config";
+import { config } from "../config/config";
 import  bcrypt from "bcrypt";
-import { userRegister } from "./user_register.model";
+import { userRegister } from "../src/api/register/user_register.model";
 
 
 // Create seperate hashing PASSWORD 

@@ -1,7 +1,6 @@
 import { WithId } from 'mongodb';
-import { z } from 'zod';
-import { db } from '../../db';
-
+import * as z from 'zod';
+import jwt from 'jsonwebtoken';
 
 // Create schema using zod 
 export const userRegister = z.object({
@@ -13,9 +12,16 @@ export const userRegister = z.object({
   phone: z.number().min(10),
   activated: z.boolean().default(false),
 });
+userRegister.refine((data) =>{
+  data.password === data.confirmpassword,{
+    message: "password does not mactch"
+  }
+})
+
+
 // extract the infered type
 export type userRegister = z.infer<typeof userRegister>;
 // Add _id into Objects using mongo WithId
 export type userRegisterWithId = WithId<userRegister>;
-export const userRegisterDb = db.collection<userRegister>('ACusers');
+
 
