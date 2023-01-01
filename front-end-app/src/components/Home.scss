@@ -1,0 +1,35 @@
+@import "style";
+.home__container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 80px;
+  width: 100%;
+  align-items: center;
+  min-height: 48.25rem;
+  background: linear-gradient(to right, $outer-space, $cactus, $sage);
+  .content-script-left {
+    display: flex;
+    width: calc(50% - 20px);
+    flex-direction: column;
+    .script-headline {
+      font-size: 25px;
+    }
+    .script-content {
+      word-wrap: break-word;
+    }
+  }
+  .image-right {
+    .imgage-picture {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home__container {
+    align-items: center;
+    min-height: 36.25rem;
+    padding-top: 10px;
+  }
+}
